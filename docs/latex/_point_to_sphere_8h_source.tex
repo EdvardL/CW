@@ -1,0 +1,64 @@
+\hypertarget{_point_to_sphere_8h_source}{}\doxysection{Point\+To\+Sphere.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#pragma once}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <filesystem>}}
+\DoxyCodeLine{4 \textcolor{preprocessor}{\#include <span>}}
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <vector>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <sstream>}}
+\DoxyCodeLine{8 \textcolor{preprocessor}{\#include <fstream>}}
+\DoxyCodeLine{9 \textcolor{preprocessor}{\#include <cmath>}}
+\DoxyCodeLine{10 }
+\DoxyCodeLine{11 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_point3_d}{Point3D}}}
+\DoxyCodeLine{12 \{}
+\DoxyCodeLine{13     \textcolor{keywordtype}{float} x;}
+\DoxyCodeLine{14     \textcolor{keywordtype}{float} y;}
+\DoxyCodeLine{15     \textcolor{keywordtype}{float} z;}
+\DoxyCodeLine{16 \};}
+\DoxyCodeLine{17 }
+\DoxyCodeLine{18 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_point2_d}{Point2D}}}
+\DoxyCodeLine{19 \{}
+\DoxyCodeLine{20     \textcolor{keywordtype}{float} x;}
+\DoxyCodeLine{21     \textcolor{keywordtype}{float} y;}
+\DoxyCodeLine{22 \};}
+\DoxyCodeLine{23 }
+\DoxyCodeLine{24 \textcolor{keyword}{struct }\mbox{\hyperlink{struct_point_sphere}{PointSphere}}}
+\DoxyCodeLine{25 \{}
+\DoxyCodeLine{26     \textcolor{keywordtype}{float} ph; \textcolor{comment}{// phi 360}}
+\DoxyCodeLine{27     \textcolor{keywordtype}{float} th; \textcolor{comment}{// theta 180}}
+\DoxyCodeLine{28 \};}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{31 \textcolor{keyword}{class }\mbox{\hyperlink{class_point_to_sphere}{PointToSphere}} \{}
+\DoxyCodeLine{32 \textcolor{keyword}{public}:}
+\DoxyCodeLine{34     \mbox{\hyperlink{class_point_to_sphere_a865473a08869f34e0f093df5541735dc}{PointToSphere}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{35 }
+\DoxyCodeLine{37     \mbox{\hyperlink{class_point_to_sphere_aa12572ffd66ed256fbd95ebacf817d8f}{\string~PointToSphere}}() = \textcolor{keywordflow}{default};}
+\DoxyCodeLine{38 }
+\DoxyCodeLine{42     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_point_to_sphere_af99709aee9a1cec624495a22600130e6}{loadFromFile}}(\textcolor{keyword}{const} std::filesystem::path\& path);}
+\DoxyCodeLine{43 }
+\DoxyCodeLine{47     \textcolor{keywordtype}{bool} \mbox{\hyperlink{class_point_to_sphere_a242a4155d96ad812a8ab5b3782a0355b}{loadFromList}}(\textcolor{keyword}{const} std::span<Point3D>\& points);}
+\DoxyCodeLine{48 }
+\DoxyCodeLine{52     \textcolor{keywordtype}{void} \mbox{\hyperlink{class_point_to_sphere_aba2fe30443690d6ae848558f8b877b70}{setAngle}}(\textcolor{keywordtype}{float} angle1, \textcolor{keywordtype}{float} angle2);}
+\DoxyCodeLine{53 }
+\DoxyCodeLine{56     std::vector<Point2D> \mbox{\hyperlink{class_point_to_sphere_ad58623e8d65724c251373c681f2eb9b7}{getVisiblePoints}}();}
+\DoxyCodeLine{57 }
+\DoxyCodeLine{60     \textcolor{keywordtype}{int} \mbox{\hyperlink{class_point_to_sphere_abcc0c1211cf664ccabea5d7da695022e}{getRadius}}()\textcolor{keyword}{ const }\{ \textcolor{keywordflow}{return} radius\_; \}}
+\DoxyCodeLine{61 }
+\DoxyCodeLine{62 \textcolor{keyword}{private}:}
+\DoxyCodeLine{66     std::vector<PointSphere> decardToSphere(\textcolor{keyword}{const} std::span<Point3D>\& points);}
+\DoxyCodeLine{67 }
+\DoxyCodeLine{71     \textcolor{keywordtype}{float} calculateRadius(\textcolor{keyword}{const} std::span<Point3D>\& points);}
+\DoxyCodeLine{72 }
+\DoxyCodeLine{73 \textcolor{keyword}{private}:}
+\DoxyCodeLine{75     \textcolor{keywordtype}{float} radius\_ = 0;}
+\DoxyCodeLine{76 }
+\DoxyCodeLine{78     std::vector<PointSphere> points\_;}
+\DoxyCodeLine{79 }
+\DoxyCodeLine{81     \textcolor{keywordtype}{float} angle1\_ = 0;}
+\DoxyCodeLine{82 }
+\DoxyCodeLine{84     \textcolor{keywordtype}{float} angle2\_ = 0;}
+\DoxyCodeLine{85 \};}
+
+\end{DoxyCode}

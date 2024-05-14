@@ -1,0 +1,47 @@
+\hypertarget{widget_8h_source}{}\doxysection{widget.\+h}
+
+\begin{DoxyCode}{0}
+\DoxyCodeLine{1 \textcolor{preprocessor}{\#include <PointToSphere.h>}}
+\DoxyCodeLine{2 }
+\DoxyCodeLine{3 \textcolor{preprocessor}{\#include <imgui.h>}}
+\DoxyCodeLine{4 }
+\DoxyCodeLine{5 \textcolor{preprocessor}{\#include <string>}}
+\DoxyCodeLine{6 \textcolor{preprocessor}{\#include <map>}}
+\DoxyCodeLine{7 \textcolor{preprocessor}{\#include <iostream>}}
+\DoxyCodeLine{8 }
+\DoxyCodeLine{9 \textcolor{keyword}{namespace }ImGui}
+\DoxyCodeLine{10 \{}
+\DoxyCodeLine{11     \textcolor{keywordtype}{void} VisualizationOfPoints(}
+\DoxyCodeLine{12         \textcolor{keyword}{const} \textcolor{keywordtype}{char}* label, }
+\DoxyCodeLine{13         \mbox{\hyperlink{class_point_to_sphere}{PointToSphere}}\& points, }
+\DoxyCodeLine{14         ImVec2 size = \{0, 0\}, }
+\DoxyCodeLine{15         ImVec4 bgColor = \{0,0,0,0\},}
+\DoxyCodeLine{16         ImVec4 circleColor = \{0.5, 0.5, 0.5, 1\},}
+\DoxyCodeLine{17         ImVec4 pointsColor = \{1,1,1,1\},}
+\DoxyCodeLine{18         \textcolor{keywordtype}{bool} showBorder = \textcolor{keyword}{false},}
+\DoxyCodeLine{19         \textcolor{keywordtype}{float} angle1 = 0,}
+\DoxyCodeLine{20         \textcolor{keywordtype}{float} angle2 = 0 }
+\DoxyCodeLine{21     )}
+\DoxyCodeLine{22     \{}
+\DoxyCodeLine{23         \textcolor{keyword}{auto} drawList = ImGui::GetWindowDrawList();}
+\DoxyCodeLine{24 }
+\DoxyCodeLine{25         ImGui::BeginChild(label, size, showBorder);}
+\DoxyCodeLine{26 }
+\DoxyCodeLine{27         drawList-\/>AddRectFilled(ImGui::GetItemRectMin(), \{ImGui::GetItemRectMin().x + size.x, ImGui::GetItemRectMin().y + size.y\}, ImGui::GetColorU32(bgColor));}
+\DoxyCodeLine{28         drawList-\/>AddCircleFilled(\{ImGui::GetItemRectMin().x + size.x/2, ImGui::GetItemRectMin().y + size.y/2\}, points.\mbox{\hyperlink{class_point_to_sphere_abcc0c1211cf664ccabea5d7da695022e}{getRadius}}(), ImGui::GetColorU32(circleColor));}
+\DoxyCodeLine{29 }
+\DoxyCodeLine{30         points.\mbox{\hyperlink{class_point_to_sphere_aba2fe30443690d6ae848558f8b877b70}{setAngle}}(angle1, angle2);}
+\DoxyCodeLine{31 }
+\DoxyCodeLine{32         \textcolor{keywordtype}{int} i = 0;}
+\DoxyCodeLine{33         \textcolor{keywordflow}{for} (\textcolor{keyword}{auto} point : points.\mbox{\hyperlink{class_point_to_sphere_ad58623e8d65724c251373c681f2eb9b7}{getVisiblePoints}}())}
+\DoxyCodeLine{34         \{}
+\DoxyCodeLine{35             drawList-\/>AddCircleFilled(\{ImGui::GetItemRectMin().x + points.\mbox{\hyperlink{class_point_to_sphere_abcc0c1211cf664ccabea5d7da695022e}{getRadius}}() + point.x, ImGui::GetItemRectMin().y + points.\mbox{\hyperlink{class_point_to_sphere_abcc0c1211cf664ccabea5d7da695022e}{getRadius}}() + point.y\}, 3, ImGui::GetColorU32(pointsColor));}
+\DoxyCodeLine{36             i+=1;}
+\DoxyCodeLine{37         \}}
+\DoxyCodeLine{38         ImGui::Text(std::string(\textcolor{stringliteral}{"{}r -\/ "{}} + std::to\_string(points.\mbox{\hyperlink{class_point_to_sphere_abcc0c1211cf664ccabea5d7da695022e}{getRadius}}())).c\_str());}
+\DoxyCodeLine{39 }
+\DoxyCodeLine{40         ImGui::EndChild();}
+\DoxyCodeLine{41     \}}
+\DoxyCodeLine{42 \}}
+
+\end{DoxyCode}

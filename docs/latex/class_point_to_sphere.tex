@@ -1,0 +1,121 @@
+\hypertarget{class_point_to_sphere}{}\doxysection{Point\+To\+Sphere Class Reference}
+\label{class_point_to_sphere}\index{PointToSphere@{PointToSphere}}
+
+
+Represents a point-\/to-\/sphere conversion and visibility calculation tool.  
+
+
+
+
+{\ttfamily \#include $<$Point\+To\+Sphere.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_point_to_sphere_a865473a08869f34e0f093df5541735dc}\label{class_point_to_sphere_a865473a08869f34e0f093df5541735dc}} 
+{\bfseries Point\+To\+Sphere} ()=default
+\begin{DoxyCompactList}\small\item\em Default constructor (does nothing). \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_point_to_sphere_aa12572ffd66ed256fbd95ebacf817d8f}\label{class_point_to_sphere_aa12572ffd66ed256fbd95ebacf817d8f}} 
+{\bfseries $\sim$\+Point\+To\+Sphere} ()=default
+\begin{DoxyCompactList}\small\item\em Destructor (does nothing by default). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_point_to_sphere_af99709aee9a1cec624495a22600130e6}{load\+From\+File}} (const std\+::filesystem\+::path \&path)
+\begin{DoxyCompactList}\small\item\em Loads point data from a file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_point_to_sphere_a242a4155d96ad812a8ab5b3782a0355b}{load\+From\+List}} (const std\+::span$<$ \mbox{\hyperlink{struct_point3_d}{Point3D}} $>$ \&points)
+\begin{DoxyCompactList}\small\item\em Loads point data from a list of 3D points. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_point_to_sphere_aba2fe30443690d6ae848558f8b877b70}{set\+Angle}} (float angle1, float angle2)
+\begin{DoxyCompactList}\small\item\em Sets the viewing angles for visibility calculations. \end{DoxyCompactList}\item 
+std\+::vector$<$ \mbox{\hyperlink{struct_point2_d}{Point2D}} $>$ \mbox{\hyperlink{class_point_to_sphere_ad58623e8d65724c251373c681f2eb9b7}{get\+Visible\+Points}} ()
+\begin{DoxyCompactList}\small\item\em Calculates and returns a list of visible 2D points based on the loaded data and viewing angles. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_point_to_sphere_abcc0c1211cf664ccabea5d7da695022e}{get\+Radius}} () const
+\begin{DoxyCompactList}\small\item\em Returns the sphere\textquotesingle{}s radius. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a point-\/to-\/sphere conversion and visibility calculation tool. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_point_to_sphere_abcc0c1211cf664ccabea5d7da695022e}\label{class_point_to_sphere_abcc0c1211cf664ccabea5d7da695022e}} 
+\index{PointToSphere@{PointToSphere}!getRadius@{getRadius}}
+\index{getRadius@{getRadius}!PointToSphere@{PointToSphere}}
+\doxysubsubsection{\texorpdfstring{getRadius()}{getRadius()}}
+{\footnotesize\ttfamily int Point\+To\+Sphere\+::get\+Radius (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the sphere\textquotesingle{}s radius. 
+
+\begin{DoxyReturn}{Returns}
+The radius of the sphere. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_point_to_sphere_ad58623e8d65724c251373c681f2eb9b7}\label{class_point_to_sphere_ad58623e8d65724c251373c681f2eb9b7}} 
+\index{PointToSphere@{PointToSphere}!getVisiblePoints@{getVisiblePoints}}
+\index{getVisiblePoints@{getVisiblePoints}!PointToSphere@{PointToSphere}}
+\doxysubsubsection{\texorpdfstring{getVisiblePoints()}{getVisiblePoints()}}
+{\footnotesize\ttfamily std\+::vector$<$ \mbox{\hyperlink{struct_point2_d}{Point2D}} $>$ Point\+To\+Sphere\+::get\+Visible\+Points (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calculates and returns a list of visible 2D points based on the loaded data and viewing angles. 
+
+\begin{DoxyReturn}{Returns}
+A vector containing the visible points as 2D points. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_point_to_sphere_af99709aee9a1cec624495a22600130e6}\label{class_point_to_sphere_af99709aee9a1cec624495a22600130e6}} 
+\index{PointToSphere@{PointToSphere}!loadFromFile@{loadFromFile}}
+\index{loadFromFile@{loadFromFile}!PointToSphere@{PointToSphere}}
+\doxysubsubsection{\texorpdfstring{loadFromFile()}{loadFromFile()}}
+{\footnotesize\ttfamily bool Point\+To\+Sphere\+::load\+From\+File (\begin{DoxyParamCaption}\item[{const std\+::filesystem\+::path \&}]{path }\end{DoxyParamCaption})}
+
+
+
+Loads point data from a file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em path} & The path to the file containing point data. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the data was loaded successfully, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_point_to_sphere_a242a4155d96ad812a8ab5b3782a0355b}\label{class_point_to_sphere_a242a4155d96ad812a8ab5b3782a0355b}} 
+\index{PointToSphere@{PointToSphere}!loadFromList@{loadFromList}}
+\index{loadFromList@{loadFromList}!PointToSphere@{PointToSphere}}
+\doxysubsubsection{\texorpdfstring{loadFromList()}{loadFromList()}}
+{\footnotesize\ttfamily bool Point\+To\+Sphere\+::load\+From\+List (\begin{DoxyParamCaption}\item[{const std\+::span$<$ \mbox{\hyperlink{struct_point3_d}{Point3D}} $>$ \&}]{points }\end{DoxyParamCaption})}
+
+
+
+Loads point data from a list of 3D points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em points} & A reference to a span of 3D points. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+True if the data was loaded successfully, false otherwise. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_point_to_sphere_aba2fe30443690d6ae848558f8b877b70}\label{class_point_to_sphere_aba2fe30443690d6ae848558f8b877b70}} 
+\index{PointToSphere@{PointToSphere}!setAngle@{setAngle}}
+\index{setAngle@{setAngle}!PointToSphere@{PointToSphere}}
+\doxysubsubsection{\texorpdfstring{setAngle()}{setAngle()}}
+{\footnotesize\ttfamily void Point\+To\+Sphere\+::set\+Angle (\begin{DoxyParamCaption}\item[{float}]{angle1,  }\item[{float}]{angle2 }\end{DoxyParamCaption})}
+
+
+
+Sets the viewing angles for visibility calculations. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em angle1} & The first viewing angle (in degrees). \\
+\hline
+{\em angle2} & The second viewing angle (in degrees). \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+Point\+To\+Sphere.\+h\item 
+Point\+To\+Sphere.\+cpp\end{DoxyCompactItemize}
