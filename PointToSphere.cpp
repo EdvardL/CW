@@ -18,7 +18,6 @@ bool PointToSphere::loadFromFile(const std::filesystem::path &path)
                 std::stringstream lieneString(line);
                 while (std::getline(lieneString, number, ';'))
                 {
-                    std::cout<<number<<std::endl;
                     numbers.push_back(stof(number));
                 }
                 if (numbers.size() == 3)

@@ -15,14 +15,15 @@
 
 PointToSphere pts1;
 
-float angle1 = 0;
+float angle = 0;
+int radius = 100;
+int pointsCount = -1;
+char path[10000] = "";
 
 void display(ImVec2 size)
 {
     ImGui::Begin("Example1");
-    ImGui::Button("Button1");
-    ImGui::VisualizationOfPoints("Example1", pts1, {200, 200}, {0,0,0, 1}, {0.5, 0.5, 0.5, 1}, {1,1,1,1}, false, angle1);
-    ImGui::SliderFloat("Angle1", &angle1, -180, 180);
+    ImGui::VisualizationOfPoints("Example1", pts1, angle, radius, pointsCount, path, 10000, {200, 200}, {0,0,0, 1}, {0.5, 0.5, 0.5, 1}, {1,1,1,1}, false);
     ImGui::End();
 }
 
@@ -30,8 +31,6 @@ int main()
 {
     sf::RenderWindow window(sf::VideoMode(1000, 600), "Points");
     window.setFramerateLimit(60);
-
-    pts1.loadFromFile("./example.csv");
 
     if(ImGui::SFML::Init(window))
     {

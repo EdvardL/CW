@@ -27,56 +27,55 @@ struct PointSphere
     float th; // theta 180
 };
 
-/// @brief Represents a point-to-sphere conversion and visibility calculation tool.
+/// @brief Представляет инструмент для преобразования точек в сферу и расчета видимости.
 class PointToSphere {
 public:
-    /// @brief Default constructor (does nothing).
+    /// @brief Конструктор по умолчанию (не выполняет ничего).
     PointToSphere() = default;
 
-    /// @brief Destructor (does nothing by default).
+    /// @brief Деструктор (по умолчанию не делает ничего).
     ~PointToSphere() = default;
 
-    /// @brief Loads point data from a file.
-    /// @param path The path to the file containing point data.
-    /// @return True if the data was loaded successfully, false otherwise.
+    /// @brief Загружает данные точек из файла.
+    /// @param path Путь к файлу с данными точек.
+    /// @return True, если данные были успешно загружены, иначе false.
     bool loadFromFile(const std::filesystem::path& path);
 
-    /// @brief Loads point data from a list of 3D points.
-    /// @param points A reference to a span of 3D points.
-    /// @return True if the data was loaded successfully, false otherwise.
+    /// @brief Загружает данные точек из списка 3D точек.
+    /// @param points Ссылка на диапазон 3D точек.
+    /// @return True, если данные были успешно загружены, иначе false.
     bool loadFromList(const std::span<Point3D>& points);
 
-    /// @brief Sets the viewing angles for visibility calculations.
-    /// @param angle1 The first viewing angle (in degrees).
-    /// @param angle2 The second viewing angle (in degrees).
+    /// @brief Устанавливает углы обзора для расчета видимости.
+    /// @param angle1 Первый угол обзора (в градусах).
     void setAngle(float angle1);
 
-    /// @brief Calculates and returns a list of visible 2D points based on the loaded data and viewing angles.
-    /// @return A vector containing the visible points as 2D points.
+    /// @brief Рассчитывает и возвращает список видимых 2D точек на основе загруженных данных и углов обзора.
+    /// @return Вектор, содержащий видимые точки как 2D точки.
     std::vector<Point2D> getVisiblePoints();
 
-    /// @brief Returns the sphere's radius.
-    /// @return The radius of the sphere.
+    /// @brief Возвращает радиус сферы.
+    /// @return Радиус сферы.
     int getRadius() const { return radius_; }
 
 private:
-    /// @brief Converts a span of 3D points to their corresponding sphere coordinates.
-    /// @param points A reference to a span of 3D points.
-    /// @return A vector containing the converted points as PointSphere objects.
+    /// @brief Преобразует диапазон 3D точек в их соответствующие сферические координаты.
+    /// @param points Ссылка на диапазон 3D точек.
+    /// @return Вектор, содержащий преобразованные точки как объекты PointSphere.
     std::vector<PointSphere> decardToSphere(const std::span<Point3D>& points);
 
-    /// @brief Calculates the radius of a sphere based on a span of 3D points.
-    /// @param points A reference to a span of 3D points.
-    /// @return The calculated radius of the sphere.
+    /// @brief Рассчитывает радиус сферы на основе диапазона 3D точек.
+    /// @param points Ссылка на диапазон 3D точек.
+    /// @return Рассчитанный радиус сферы.
     float calculateRadius(const std::span<Point3D>& points);
 
 private:
-    /// @brief The radius of the sphere.
+    /// @brief Радиус сферы.
     float radius_ = 0;
 
-    /// @brief The list of points stored in sphere coordinates.
+    /// @brief Список точек, сохраненных в сферических координатах.
     std::vector<PointSphere> points_;
 
-    /// @brief The first viewing angle for visibility calculations (in degrees).
+    /// @brief Первый угол обзора для расчетов видимости (в градусах).
     float angle1_ = 0;
 };
